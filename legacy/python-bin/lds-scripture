@@ -1,0 +1,6 @@
+#!/bin/sh
+# Launches the Scriptures GNOME app. Uses the system Python, which provides GTK 4 / libadwaita
+# bindings (python3-gi); other Pythons on PATH (conda, venvs) usually do not.
+ROOT="$(dirname "$(readlink -f "$0")")/.."
+export PYTHONPATH="$ROOT${PYTHONPATH:+:$PYTHONPATH}"
+exec /usr/bin/python3 -m lds_scripture.gui "$@"
